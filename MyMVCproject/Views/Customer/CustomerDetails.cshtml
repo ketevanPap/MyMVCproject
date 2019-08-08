@@ -1,0 +1,80 @@
+﻿@model MyMVCproject.ViewModels.CustomerDetailsView
+
+@{
+    ViewBag.Title = "CustomerDetails";
+}
+
+<h2>CustomerDetails</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(c => Model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(c => Model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(c => Model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(c => Model.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(c => Model.BirthDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(c => Model.BirthDay)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(c => Model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(c => Model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(c => Model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(c => Model.PhoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(c => Model.NameOfMemberShipType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(c => Model.NameOfMemberShipType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(c => Model.DiscountRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(c => Model.DiscountRate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(c => Model.DurationInMonths)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(c => Model.DurationInMonths)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(c => Model.SignUpFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(c => Model.SignUpFee)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit") |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,37 @@
+﻿
+@using MyMVCproject.Models;
+@model List<Customer>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Customers</h2>
+
+<p>
+    <input type="button" value="New Customer" class="btn btn-success" onclick="@("window.location.href='" + @Url.Action("New", "Customer") + "'");" />
+</p>
+
+@if (!Model.Any())
+{
+    <p>We do not Have Any Customers Yet.</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th> @Html.Label("Customer")</th>
+            <th>@Html.Label("Member Type")</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(c.FirstName, "Edit", "Customer", new { id = c.Id }, null)</td>
+                <td>@c.MembershipType.Name</td>
+                <td>
+                    <button class="btn-link">Delete</button>
+                </td>
+            </tr>
+        }
+    </table>
+}

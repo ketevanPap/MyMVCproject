@@ -1,0 +1,66 @@
+﻿@model MyMVCproject.ViewModels.NewCustomerViewModel
+@{
+    ViewBag.Title = "New";
+}
+
+@if (Model.Customer == null)
+{
+    <h2>New Customer</h2>
+}
+else
+{
+    <h2>Edit Customer</h2>
+}
+<br />
+<br />
+
+@using (Html.BeginForm("Save", "Customer"))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Customer.FirstName)
+        @Html.TextBoxFor(c => c.Customer.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customer.FirstName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Customer.LastName)
+        @Html.TextBoxFor(c => c.Customer.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customer.LastName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label for="BirthDay">Date of Birth</label>
+        @*@Html.LabelFor(c => c.Customer.BirthDay)*@
+        @Html.TextBoxFor(c => c.Customer.BirthDay, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customer.BirthDay, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Customer.Email)
+        @Html.TextBoxFor(c => c.Customer.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customer.Email, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Customer.PhoneNumber)
+        @Html.TextBoxFor(c => c.Customer.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customer.PhoneNumber, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Customer.MemberShipTypeId)
+        @Html.DropDownListFor(c => c.Customer.MemberShipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(c => c.Customer.IsSubscibedToNewletter) Subscibed to Newsletters
+        </label>
+    </div>
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(c => c.Customer.Id)
+    <button type="submit" class="btn btn-success">Save</button>
+    <br />
+    <br />
+    <p>
+        @Html.ValidationSummary(true, "Please Fix errors", new { @class = "text-danger" })
+    </p>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}    
